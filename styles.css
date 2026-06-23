@@ -1,0 +1,205 @@
+/* ===== Токены ===== */
+:root{
+  --ink:#141210;        /* тёплый near-black фон */
+  --ink-2:#1c1815;      /* поверхность */
+  --ink-3:#26211c;      /* приподнятая */
+  --paper:#f4f0e9;      /* тёплый белый текст */
+  --muted:#a99f92;      /* приглушённый */
+  --cobalt:#3a5bff;     /* основной акцент */
+  --cobalt-2:#6a82ff;
+  --amber:#f2b33d;      /* сигнатурный акцент (цены, розыгрыш) */
+  --line:rgba(244,240,233,.12);
+  --display:'Unbounded',system-ui,sans-serif;
+  --body:'Manrope',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --max:1180px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);color:var(--paper);font-family:var(--body);
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ===== Видоискатель (сигнатура) ===== */
+.viewfinder{position:fixed;inset:14px;pointer-events:none;z-index:60}
+.vf{position:absolute;width:26px;height:26px;border:2px solid var(--cobalt)}
+.vf-tl{top:0;left:0;border-right:0;border-bottom:0}
+.vf-tr{top:0;right:0;border-left:0;border-bottom:0}
+.vf-bl{bottom:0;left:0;border-right:0;border-top:0}
+.vf-br{bottom:0;right:0;border-left:0;border-top:0}
+.vf-rec{
+  position:absolute;top:-2px;right:34px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.18em;color:var(--amber);opacity:.85;
+}
+.vf-rec::before{content:"";display:inline-block;width:7px;height:7px;margin-right:5px;
+  border-radius:50%;background:var(--amber);vertical-align:middle;animation:blink 1.6s steps(1) infinite}
+@keyframes blink{50%{opacity:.15}}
+
+/* ===== Навигация ===== */
+.nav{
+  position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:28px;
+  padding:18px clamp(20px,5vw,56px);
+  background:rgba(20,18,16,.72);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.brand{font-family:var(--display);font-weight:900;font-size:20px;letter-spacing:.02em}
+.brand-mark{color:var(--cobalt)}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:15px;font-weight:500}
+.nav-links a{color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--paper)}
+.nav-cta{margin-left:8px}
+
+/* ===== Кнопки ===== */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 26px;border-radius:999px;font-weight:700;font-size:15px;
+  border:1px solid transparent;cursor:pointer;transition:transform .15s,background .2s,color .2s;
+}
+.btn:active{transform:translateY(1px)}
+.btn-accent{background:var(--cobalt);color:#fff}
+.btn-accent:hover{background:var(--cobalt-2)}
+.btn-ghost{border-color:var(--line);color:var(--paper)}
+.btn-ghost:hover{border-color:var(--paper)}
+.btn-dark{background:var(--ink);color:var(--paper)}
+.btn-dark:hover{background:#000}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;max-width:var(--max);margin:0 auto;
+  padding:clamp(70px,12vw,140px) clamp(20px,5vw,56px) clamp(40px,7vw,80px);
+}
+.hero-frame{position:absolute;inset:clamp(28px,6vw,70px) clamp(14px,4vw,48px)}
+.hero-frame .vf{width:34px;height:34px;border-color:var(--line)}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.22em;color:var(--cobalt-2);
+  text-transform:uppercase;margin-bottom:22px}
+.hero-title{
+  font-family:var(--display);font-weight:900;line-height:.98;letter-spacing:-.01em;
+  font-size:clamp(42px,9vw,104px);margin-bottom:26px;
+}
+.accent-word{color:var(--amber)}
+.hero-sub{max-width:560px;color:var(--muted);font-size:clamp(16px,2.2vw,20px);margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+/* ===== Бегущая строка ===== */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--ink-2);overflow:hidden;padding:16px 0}
+.ticker-track{display:flex;gap:30px;white-space:nowrap;width:max-content;
+  font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.04em;
+  animation:scroll 26s linear infinite}
+.ticker-track i{color:var(--cobalt);font-style:normal}
+.ticker-track span{color:var(--paper)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ===== Секции ===== */
+.section{max-width:var(--max);margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,5vw,56px)}
+.section-alt{background:var(--ink-2);max-width:none}
+.section-alt > *{max-width:var(--max);margin-left:auto;margin-right:auto}
+.section-head{margin-bottom:46px}
+.section-title{font-family:var(--display);font-weight:700;font-size:clamp(30px,5.5vw,56px);
+  letter-spacing:-.01em;line-height:1.02}
+.section-lead{color:var(--muted);max-width:560px;margin-top:14px}
+
+/* ===== Карточки услуг ===== */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{position:relative;background:var(--ink-2);border:1px solid var(--line);border-radius:18px;
+  padding:30px 26px 26px;transition:border-color .25s,transform .25s,background .25s}
+.section-alt .card{background:var(--ink-3)}
+.card:hover{border-color:var(--cobalt);transform:translateY(-4px)}
+.card-num{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.card h3{font-family:var(--display);font-weight:500;font-size:22px;margin:12px 0 10px}
+.card p{color:var(--muted);font-size:15px;margin-bottom:20px}
+.price{display:inline-block;font-family:var(--mono);font-size:14px;font-weight:500;
+  color:var(--ink);background:var(--amber);padding:5px 12px;border-radius:999px}
+.price-muted{color:var(--paper);background:transparent;border:1px solid var(--line)}
+
+/* ===== Тарифы ===== */
+.tariffs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+.tariff{position:relative;background:var(--ink);border:1px solid var(--line);border-radius:20px;
+  padding:32px 28px}
+.tariff-pop{border-color:var(--cobalt);box-shadow:0 0 0 1px var(--cobalt),0 30px 60px -30px rgba(58,91,255,.5)}
+.tariff-badge{position:absolute;top:-12px;right:24px;background:var(--cobalt);color:#fff;
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;padding:5px 12px;border-radius:999px}
+.tariff-name{font-family:var(--display);font-weight:500;font-size:20px;color:var(--muted)}
+.tariff-price{font-family:var(--display);font-weight:900;font-size:34px;margin:8px 0 2px}
+.tariff-price span{font-family:var(--body);font-weight:500;font-size:15px;color:var(--muted)}
+.tariff-for{color:var(--cobalt-2);font-size:14px;margin-bottom:20px}
+.tariff ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:26px}
+.tariff li{position:relative;padding-left:24px;color:var(--paper);font-size:15px}
+.tariff li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;
+  border:2px solid var(--amber);border-radius:50%}
+.tariff-btn{width:100%}
+
+/* ===== Галерея кейсов ===== */
+.gallery{columns:3;column-gap:14px}
+.shot{position:relative;margin:0 0 14px;border-radius:14px;overflow:hidden;break-inside:avoid;
+  border:1px solid var(--line)}
+.shot img{width:100%;height:auto;transition:transform .5s ease,filter .4s}
+.shot::after{content:"";position:absolute;inset:0;border:2px solid transparent;border-radius:14px;
+  transition:border-color .3s}
+.shot:hover img{transform:scale(1.05)}
+.shot:hover::after{border-color:var(--cobalt)}
+
+/* ===== Процесс ===== */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:none}
+.step{background:var(--ink);border:1px solid var(--line);border-radius:16px;padding:26px 22px}
+.step-n{font-family:var(--mono);font-size:13px;color:var(--cobalt);display:block;margin-bottom:18px}
+.step h3{font-family:var(--display);font-weight:500;font-size:19px;margin-bottom:8px}
+.step p{color:var(--muted);font-size:14px}
+
+/* ===== Розыгрыш ===== */
+.giveaway{background:var(--amber);color:var(--ink);padding:clamp(50px,8vw,90px) clamp(20px,5vw,56px)}
+.giveaway-inner{max-width:var(--max);margin:0 auto;text-align:center}
+.giveaway h2{font-family:var(--display);font-weight:900;font-size:clamp(28px,5vw,52px);
+  line-height:1.02;margin:6px auto 14px;max-width:760px}
+.giveaway-sub{max-width:540px;margin:0 auto 28px;color:#3c2f12;font-size:17px}
+.eyebrow-dark{color:#7a5d18}
+
+/* ===== Контакты ===== */
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.contact-card{display:flex;flex-direction:column;gap:7px;background:var(--ink-2);
+  border:1px solid var(--line);border-radius:18px;padding:28px 26px;transition:border-color .25s,transform .25s}
+.contact-card:hover{border-color:var(--cobalt);transform:translateY(-3px)}
+.contact-k{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.contact-v{font-family:var(--display);font-weight:500;font-size:22px}
+.contact-act{color:var(--cobalt-2);font-size:14px;font-weight:700;margin-top:6px}
+
+/* ===== Футер ===== */
+.footer{border-top:1px solid var(--line);padding:46px clamp(20px,5vw,56px);text-align:center;color:var(--muted)}
+.footer .brand{display:inline-block;margin-bottom:12px}
+.footer p{font-size:14px}
+.footer-small{margin-top:10px;font-size:12.5px;opacity:.7}
+
+/* ===== Reveal-анимация (только при включённом JS; без JS всё видно) ===== */
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+
+/* ===== Мобильное меню ===== */
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:var(--paper);transition:.25s}
+
+/* ===== Адаптив ===== */
+@media(max-width:900px){
+  .cards,.tariffs,.steps,.contacts{grid-template-columns:1fr 1fr}
+  .gallery{columns:2}
+}
+@media(max-width:680px){
+  .nav-links,.nav-cta{display:none}
+  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;
+    gap:0;background:var(--ink-2);border-bottom:1px solid var(--line)}
+  .nav-links.open a{padding:16px clamp(20px,5vw,56px);border-top:1px solid var(--line)}
+  .burger{display:flex}
+  .cards,.tariffs,.steps,.contacts{grid-template-columns:1fr}
+  .gallery{columns:1}
+  .viewfinder{inset:8px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
