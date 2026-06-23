@@ -13,53 +13,76 @@
 </head>
 <body>
 
-<!-- viewfinder рамка вокруг всего вьюпорта -->
+<!-- SVG-фильтры: живая рефракция «жидкого стекла» -->
+<svg class="svg-defs" aria-hidden="true" focusable="false">
+  <filter id="liquid">
+    <feTurbulence type="fractalNoise" baseFrequency="0.011 0.013" numOctaves="2" seed="7" result="noise">
+      <animate attributeName="baseFrequency" dur="20s" values="0.011 0.013;0.016 0.010;0.011 0.013" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="26" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<!-- фон: дрейфующие цветные блобы (их «ловит» стекло) -->
+<div class="blobs" aria-hidden="true"><span class="blob blob-a"></span><span class="blob blob-b"></span><span class="blob blob-c"></span></div>
+<!-- плёночное зерно -->
+<div class="grain" aria-hidden="true"></div>
+<!-- кастомный курсор -->
+<div class="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-ring"><i class="cursor-label"></i></span></div>
+
+<!-- рамка видоискателя -->
 <div class="viewfinder" aria-hidden="true">
   <span class="vf vf-tl"></span><span class="vf vf-tr"></span>
   <span class="vf vf-bl"></span><span class="vf vf-br"></span>
-  <span class="vf-rec">● REC</span>
+  <button type="button" class="vf-rec" id="rec" title="режим съёмки">● REC <span id="rec-time"></span></button>
 </div>
 
-<header class="nav" id="top">
-  <a class="brand" href="#top"><span class="brand-mark">[</span>ИМИДЖ<span class="brand-mark">]</span></a>
+<header class="nav glass" id="top">
+  <a class="brand" href="#top" id="brand"><span class="brand-mark">[</span>ИМИДЖ<span class="brand-mark">]</span></a>
   <nav class="nav-links" aria-label="Разделы">
-    <a href="#services">Услуги</a>
-    <a href="#tariffs">Тарифы</a>
-    <a href="#cases">Кейсы</a>
-    <a href="#process">Процесс</a>
-    <a href="#contact">Контакты</a>
+    <a href="#services" data-cursor>Услуги</a>
+    <a href="#tariffs" data-cursor>Тарифы</a>
+    <a href="#cases" data-cursor>Кейсы</a>
+    <a href="#process" data-cursor>Процесс</a>
+    <a href="#contact" data-cursor>Контакты</a>
   </nav>
-  <a class="btn btn-accent nav-cta" href="https://t.me/IMIDZHRF" target="_blank" rel="noopener">Оставить заявку</a>
+  <a class="btn btn-accent nav-cta" data-magnetic href="https://t.me/IMIDZHRF" target="_blank" rel="noopener">Оставить заявку</a>
   <button class="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-frame">
+  <div class="hero-collage" aria-hidden="true">
+    <img src="img/shot02.jpg" alt="" loading="eager">
+    <img src="img/shot07.jpg" alt="" loading="eager">
+    <img src="img/shot20.jpg" alt="" loading="eager">
+  </div>
+  <div class="hero-frame" aria-hidden="true">
     <span class="vf vf-tl"></span><span class="vf vf-tr"></span>
     <span class="vf vf-bl"></span><span class="vf vf-br"></span>
   </div>
-  <p class="eyebrow">К00 — рекламное агентство · СПб</p>
-  <h1 class="hero-title">
-    Создаём полную<br><span class="accent-word">визуальную систему</span><br>бренда
-  </h1>
-  <p class="hero-sub">
-    Фото, видео, дизайн и продвижение под ключ. Делаем так, чтобы ваш бизнес
-    выглядел сильнее, заметнее и профессиональнее — и приносил заявки.
-  </p>
-  <div class="hero-cta">
-    <a class="btn btn-accent" href="https://t.me/IMIDZHRF" target="_blank" rel="noopener">Оставить заявку</a>
-    <a class="btn btn-ghost" href="#services">Смотреть услуги</a>
+  <div class="hero-text">
+    <p class="eyebrow">К00 — рекламное агентство · СПб</p>
+    <h1 class="hero-title" data-split>Создаём полную <span class="accent-word">визуальную&nbsp;систему</span> бренда</h1>
+    <p class="hero-sub">Фото, видео, дизайн и продвижение под ключ. Делаем так, чтобы ваш бизнес выглядел сильнее, заметнее и профессиональнее — и приносил заявки.</p>
+    <div class="hero-cta">
+      <a class="btn btn-accent" data-magnetic href="https://t.me/IMIDZHRF" target="_blank" rel="noopener">Оставить заявку</a>
+      <a class="btn btn-glass" data-magnetic href="#services">Смотреть услуги</a>
+    </div>
+  </div>
+  <!-- сигнатура: живая стеклянная линза -->
+  <div class="lens" id="lens" data-cursor data-label="ИМИДЖ">
+    <div class="lens-img" style="background-image:url('img/shot21.jpg')"></div>
+    <span class="lens-reticle">+</span>
+    <span class="lens-glass"></span>
   </div>
 </section>
 
 <!-- бегущая строка -->
 <div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span>ФОТОСЪЁМКА</span><i>✦</i><span>ВИДЕОПРОИЗВОДСТВО</span><i>✦</i><span>БРЕНДИНГ</span><i>✦</i>
-    <span>ЛИДОГЕНЕРАЦИЯ</span><i>✦</i><span>ТАРГЕТ</span><i>✦</i><span>AI-КОНТЕНТ</span><i>✦</i>
-    <span>ФОТОСЪЁМКА</span><i>✦</i><span>ВИДЕОПРОИЗВОДСТВО</span><i>✦</i><span>БРЕНДИНГ</span><i>✦</i>
-    <span>ЛИДОГЕНЕРАЦИЯ</span><i>✦</i><span>ТАРГЕТ</span><i>✦</i><span>AI-КОНТЕНТ</span><i>✦</i>
+  <div class="ticker-track" id="ticker">
+    <span>ФОТОСЪЁМКА</span><i>✦</i><span>ВИДЕОПРОИЗВОДСТВО</span><i>✦</i><span>БРЕНДИНГ</span><i>✦</i><span>ЛИДОГЕНЕРАЦИЯ</span><i>✦</i><span>ТАРГЕТ</span><i>✦</i><span>AI-КОНТЕНТ</span><i>✦</i>
+    <span>ФОТОСЪЁМКА</span><i>✦</i><span>ВИДЕОПРОИЗВОДСТВО</span><i>✦</i><span>БРЕНДИНГ</span><i>✦</i><span>ЛИДОГЕНЕРАЦИЯ</span><i>✦</i><span>ТАРГЕТ</span><i>✦</i><span>AI-КОНТЕНТ</span><i>✦</i>
   </div>
 </div>
 
@@ -70,94 +93,32 @@
     <h2 class="section-title">Услуги</h2>
   </header>
   <div class="cards">
-    <article class="card reveal">
-      <span class="card-num">01</span>
-      <h3>Фотосъёмка</h3>
-      <p>Предметная, интерьерная, lifestyle, мероприятия и контент для сайта, маркетплейса и соцсетей.</p>
-      <span class="price">от 4 000 ₽</span>
-    </article>
-    <article class="card reveal">
-      <span class="card-num">02</span>
-      <h3>Видеопроизводство</h3>
-      <p>Рилсы, клипы, имиджевые ролики, интервью, репортаж, реклама, бэкстейдж — съёмка и монтаж «всё включено».</p>
-      <span class="price price-muted">по запросу</span>
-    </article>
-    <article class="card reveal">
-      <span class="card-num">03</span>
-      <h3>Дизайн и брендинг</h3>
-      <p>Логотип, фирменный стиль, визитки, листовки, меню, презентации, дизайн сайтов.</p>
-      <span class="price">от 3 000 ₽</span>
-    </article>
-    <article class="card reveal">
-      <span class="card-num">04</span>
-      <h3>Лидогенерация</h3>
-      <p>Команда из 3 специалистов: блогеры, холодный аутрич и рекламные размещения — стабильный поток заявок.</p>
-      <span class="price">от 2 500 ₽/день</span>
-    </article>
-    <article class="card reveal">
-      <span class="card-num">05</span>
-      <h3>Таргетинг</h3>
-      <p>Настройка и ведение рекламы под ключ: стратегия, связки, тесты, оптимизация и отчётность по заявкам.</p>
-      <span class="price price-muted">под задачу</span>
-    </article>
-    <article class="card reveal">
-      <span class="card-num">06</span>
-      <h3>AI-контент</h3>
-      <p>AI-видео и визуал для соцсетей и каналов — больше контента быстрее и дешевле.</p>
-      <span class="price price-muted">в тарифах</span>
-    </article>
+    <article class="card glass reveal" data-tilt><span class="card-num">01</span><h3>Фотосъёмка</h3><p>Предметная, интерьерная, lifestyle, мероприятия и контент для сайта, маркетплейса и соцсетей.</p><span class="price">от 4 000 ₽</span></article>
+    <article class="card glass reveal" data-tilt><span class="card-num">02</span><h3>Видеопроизводство</h3><p>Рилсы, клипы, имиджевые ролики, интервью, репортаж, реклама, бэкстейдж — съёмка и монтаж «всё включено».</p><span class="price price-muted">по запросу</span></article>
+    <article class="card glass reveal" data-tilt><span class="card-num">03</span><h3>Дизайн и брендинг</h3><p>Логотип, фирменный стиль, визитки, листовки, меню, презентации, дизайн сайтов.</p><span class="price">от 3 000 ₽</span></article>
+    <article class="card glass reveal" data-tilt><span class="card-num">04</span><h3>Лидогенерация</h3><p>Команда из 3 специалистов: блогеры, холодный аутрич и рекламные размещения — стабильный поток заявок.</p><span class="price">от 2 500 ₽/день</span></article>
+    <article class="card glass reveal" data-tilt><span class="card-num">05</span><h3>Таргетинг</h3><p>Настройка и ведение рекламы под ключ: стратегия, связки, тесты, оптимизация и отчётность по заявкам.</p><span class="price price-muted">под задачу</span></article>
+    <article class="card glass reveal" data-tilt><span class="card-num">06</span><h3>AI-контент</h3><p>AI-видео и визуал для соцсетей и каналов — больше контента быстрее и дешевле.</p><span class="price price-muted">в тарифах</span></article>
   </div>
 </section>
 
-<!-- ТАРИФЫ: оформление с нуля -->
-<section class="section section-alt" id="tariffs">
+<!-- ФОТО-БЭНД (full-bleed) -->
+<section class="band reveal" aria-label="Кадр из работ">
+  <img src="img/shot19.jpg" alt="Кадр из съёмок ИМИДЖ" loading="lazy">
+  <div class="band-quote glass"><span class="eyebrow">наш подход</span><p>Снимаем не «фото», а образ, который продаёт.</p></div>
+</section>
+
+<!-- ТАРИФЫ -->
+<section class="section" id="tariffs">
   <header class="section-head reveal">
     <p class="eyebrow">К02 — оформление с нуля</p>
     <h2 class="section-title">Продвижение под ключ</h2>
     <p class="section-lead">Полный цикл: съёмка, контент, дизайн, ведение канала и трафик. Выберите интенсивность.</p>
   </header>
   <div class="tariffs">
-    <article class="tariff reveal">
-      <h3 class="tariff-name">Базовый</h3>
-      <p class="tariff-price">82 000 ₽<span>/мес</span></p>
-      <p class="tariff-for">Старт и тест ниши</p>
-      <ul>
-        <li>4 фотосъёмки в месяц</li>
-        <li>8 рилсов (визуальный контент)</li>
-        <li>Логотип + аватарка</li>
-        <li>28 постов, ведение канала</li>
-        <li>Запуск канала ≈1000 подписчиков</li>
-      </ul>
-      <a class="btn btn-ghost tariff-btn" href="https://t.me/IMIDZHRF" target="_blank" rel="noopener">Выбрать</a>
-    </article>
-    <article class="tariff tariff-pop reveal">
-      <span class="tariff-badge">Хит</span>
-      <h3 class="tariff-name">Продвинутый</h3>
-      <p class="tariff-price">169 756 ₽<span>/мес</span></p>
-      <p class="tariff-for">Активный рост и масштаб</p>
-      <ul>
-        <li>8 фотосъёмок + 12 рилсов</li>
-        <li>AI-видеоконтент: 4 видео/нед</li>
-        <li>36 постов, ведение канала</li>
-        <li>Канал ≈10 000 подписчиков</li>
-        <li>Telegram-бот (воронка)</li>
-        <li>Сайт: домен, сервер, разработка, дизайн</li>
-      </ul>
-      <a class="btn btn-accent tariff-btn" href="https://t.me/IMIDZHRF" target="_blank" rel="noopener">Выбрать</a>
-    </article>
-    <article class="tariff reveal">
-      <h3 class="tariff-name">Максимальный</h3>
-      <p class="tariff-price">306 756 ₽<span>/мес</span></p>
-      <p class="tariff-for">Полный цикл + трафик и офлайн</p>
-      <ul>
-        <li>Всё из «Продвинутого»</li>
-        <li>Колл-центр: 3 человека</li>
-        <li>Организация нетворкинга</li>
-        <li>Бот для мероприятия</li>
-        <li>Таргетированная реклама от 50 000 ₽</li>
-      </ul>
-      <a class="btn btn-ghost tariff-btn" href="https://t.me/IMIDZHRF" target="_blank" rel="noopener">Выбрать</a>
-    </article>
+    <article class="tariff glass reveal"><h3 class="tariff-name">Базовый</h3><p class="tariff-price">82 000 ₽<span>/мес</span></p><p class="tariff-for">Старт и тест ниши</p><ul><li>4 фотосъёмки в месяц</li><li>8 рилсов (визуальный контент)</li><li>Логотип + аватарка</li><li>28 постов, ведение канала</li><li>Запуск канала ≈1000 подписчиков</li></ul><a class="btn btn-glass tariff-btn" data-magnetic href="https://t.me/IMIDZHRF" target="_blank" rel="noopener">Выбрать</a></article>
+    <article class="tariff glass tariff-pop reveal"><span class="tariff-badge">Хит</span><h3 class="tariff-name">Продвинутый</h3><p class="tariff-price">169 756 ₽<span>/мес</span></p><p class="tariff-for">Активный рост и масштаб</p><ul><li>8 фотосъёмок + 12 рилсов</li><li>AI-видеоконтент: 4 видео/нед</li><li>36 постов, ведение канала</li><li>Канал ≈10 000 подписчиков</li><li>Telegram-бот (воронка)</li><li>Сайт: домен, сервер, разработка, дизайн</li></ul><a class="btn btn-accent tariff-btn" data-magnetic href="https://t.me/IMIDZHRF" target="_blank" rel="noopener">Выбрать</a></article>
+    <article class="tariff glass reveal"><h3 class="tariff-name">Максимальный</h3><p class="tariff-price">306 756 ₽<span>/мес</span></p><p class="tariff-for">Полный цикл + трафик и офлайн</p><ul><li>Всё из «Продвинутого»</li><li>Колл-центр: 3 человека</li><li>Организация нетворкинга</li><li>Бот для мероприятия</li><li>Таргет от 50 000 ₽</li></ul><a class="btn btn-glass tariff-btn" data-magnetic href="https://t.me/IMIDZHRF" target="_blank" rel="noopener">Выбрать</a></article>
   </div>
 </section>
 
@@ -166,44 +127,45 @@
   <header class="section-head reveal">
     <p class="eyebrow">К03 — наши кадры</p>
     <h2 class="section-title">Кейсы и съёмки</h2>
+    <p class="section-lead">Наведите на кадр — и нажмите, чтобы рассмотреть.</p>
   </header>
   <div class="gallery" id="gallery">
-    <figure class="shot reveal"><img src="photos_web/photo_p01_1.jpg" alt="Кадр из съёмки ИМИДЖ" loading="lazy"></figure>
-    <figure class="shot reveal"><img src="photos_web/photo_p05_0.jpg" alt="Предметная фотосъёмка" loading="lazy"></figure>
-    <figure class="shot reveal"><img src="photos_web/photo_p02_0.jpg" alt="Интерьерная съёмка" loading="lazy"></figure>
-    <figure class="shot reveal"><img src="photos_web/photo_p06_0.jpg" alt="Lifestyle-съёмка" loading="lazy"></figure>
-    <figure class="shot reveal"><img src="photos_web/photo_p08_1.jpg" alt="Съёмка мероприятия" loading="lazy"></figure>
-    <figure class="shot reveal"><img src="photos_web/photo_p02_1.jpg" alt="Контент для бренда" loading="lazy"></figure>
-    <figure class="shot reveal"><img src="photos_web/photo_p09_0.jpg" alt="Рекламная съёмка" loading="lazy"></figure>
-    <figure class="shot reveal"><img src="photos_web/photo_p03_0.jpg" alt="Студийная съёмка" loading="lazy"></figure>
-    <figure class="shot reveal"><img src="photos_web/photo_p11_0.jpg" alt="Бренд-контент" loading="lazy"></figure>
-    <figure class="shot reveal"><img src="photos_web/photo_p12_0.jpg" alt="Кадр продакшна" loading="lazy"></figure>
-    <figure class="shot reveal"><img src="photos_web/photo_p06_1.jpg" alt="Фотосъёмка для соцсетей" loading="lazy"></figure>
-    <figure class="shot reveal"><img src="photos_web/photo_p13_0.jpg" alt="Кадр из портфолио ИМИДЖ" loading="lazy"></figure>
+    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot02.jpg" alt="Кадр из съёмки ИМИДЖ" loading="lazy"></figure>
+    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot07.jpg" alt="Lifestyle-съёмка" loading="lazy"></figure>
+    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot03.jpg" alt="Интерьерная съёмка" loading="lazy"></figure>
+    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot06.jpg" alt="Предметная съёмка" loading="lazy"></figure>
+    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot09.jpg" alt="Контент для бренда" loading="lazy"></figure>
+    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot11.jpg" alt="Рекламная съёмка" loading="lazy"></figure>
+    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot20.jpg" alt="Съёмка для бренда" loading="lazy"></figure>
+    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot10.jpg" alt="Студийная съёмка" loading="lazy"></figure>
+    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot13.jpg" alt="Бренд-контент" loading="lazy"></figure>
+    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot16.jpg" alt="Кадр продакшна" loading="lazy"></figure>
+    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot08.jpg" alt="Съёмка мероприятия" loading="lazy"></figure>
+    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot21.jpg" alt="Портфолио ИМИДЖ" loading="lazy"></figure>
   </div>
 </section>
 
 <!-- ПРОЦЕСС -->
-<section class="section section-alt" id="process">
+<section class="section" id="process">
   <header class="section-head reveal">
     <p class="eyebrow">К04 — как мы работаем</p>
     <h2 class="section-title">Процесс</h2>
   </header>
   <ol class="steps">
-    <li class="step reveal"><span class="step-n">01</span><h3>Бриф и встреча</h3><p>Изучаем продукт, аудиторию и цели. Согласуем бюджет и формат.</p></li>
-    <li class="step reveal"><span class="step-n">02</span><h3>Концепция</h3><p>Собираем визуальную идею и стратегию продвижения под задачу.</p></li>
-    <li class="step reveal"><span class="step-n">03</span><h3>Продакшн + AI</h3><p>Снимаем, монтируем, дизайним. Ускоряем выпуск контента с AI.</p></li>
-    <li class="step reveal"><span class="step-n">04</span><h3>Передача</h3><p>Отдаём готовый контент и систему бренда. Ведём и масштабируем.</p></li>
+    <li class="step glass reveal"><span class="step-n">01</span><h3>Бриф и встреча</h3><p>Изучаем продукт, аудиторию и цели. Согласуем бюджет и формат.</p></li>
+    <li class="step glass reveal"><span class="step-n">02</span><h3>Концепция</h3><p>Собираем визуальную идею и стратегию продвижения под задачу.</p></li>
+    <li class="step glass reveal"><span class="step-n">03</span><h3>Продакшн + AI</h3><p>Снимаем, монтируем, дизайним. Ускоряем выпуск контента с AI.</p></li>
+    <li class="step glass reveal"><span class="step-n">04</span><h3>Передача</h3><p>Отдаём готовый контент и систему бренда. Ведём и масштабируем.</p></li>
   </ol>
 </section>
 
-<!-- РОЗЫГРЫШ (кросс-промо бота) -->
+<!-- РОЗЫГРЫШ -->
 <section class="giveaway reveal" id="giveaway">
   <div class="giveaway-inner">
     <p class="eyebrow eyebrow-dark">Бесплатно для бизнеса</p>
     <h2>Разыгрываем бесплатную фотосъёмку</h2>
     <p class="giveaway-sub">Оставьте заявку в нашем боте — и поборитесь за качественный визуальный контент для своего бренда.</p>
-    <a class="btn btn-dark" href="https://t.me/alobuissns_bot" target="_blank" rel="noopener">Участвовать в розыгрыше</a>
+    <a class="btn btn-dark" data-magnetic href="https://t.me/alobuissns_bot" target="_blank" rel="noopener">Участвовать в розыгрыше</a>
   </div>
 </section>
 
@@ -215,23 +177,20 @@
     <p class="section-lead">Напишите или позвоните — ответим, посчитаем и предложим формат под вашу задачу.</p>
   </header>
   <div class="contacts">
-    <a class="contact-card reveal" href="https://t.me/IMIDZHRF" target="_blank" rel="noopener">
-      <span class="contact-k">Менеджер</span><span class="contact-v">@IMIDZHRF</span><span class="contact-act">Написать →</span>
-    </a>
-    <a class="contact-card reveal" href="tel:+79673411808">
-      <span class="contact-k">Телефон</span><span class="contact-v">+7 967 341 1808</span><span class="contact-act">Позвонить →</span>
-    </a>
-    <a class="contact-card reveal" href="https://t.me/IMIDZH_RF" target="_blank" rel="noopener">
-      <span class="contact-k">Telegram-канал</span><span class="contact-v">@IMIDZH_RF</span><span class="contact-act">Открыть →</span>
-    </a>
+    <a class="contact-card glass reveal" data-magnetic href="https://t.me/IMIDZHRF" target="_blank" rel="noopener"><span class="contact-k">Менеджер</span><span class="contact-v">@IMIDZHRF</span><span class="contact-act">Написать →</span></a>
+    <a class="contact-card glass reveal" data-magnetic href="tel:+79673411808"><span class="contact-k">Телефон</span><span class="contact-v">+7 967 341 1808</span><span class="contact-act">Позвонить →</span></a>
+    <a class="contact-card glass reveal" data-magnetic href="https://t.me/IMIDZH_RF" target="_blank" rel="noopener"><span class="contact-k">Telegram-канал</span><span class="contact-v">@IMIDZH_RF</span><span class="contact-act">Открыть →</span></a>
   </div>
 </section>
 
 <footer class="footer">
   <span class="brand"><span class="brand-mark">[</span>ИМИДЖ<span class="brand-mark">]</span></span>
   <p>Полная визуальная система бренда — фото, видео, дизайн, продвижение.</p>
-  <p class="footer-small">© 2026 ИМИДЖ · рекламное агентство</p>
+  <p class="footer-small">© 2026 ИМИДЖ · рекламное агентство · <span id="egg-hint">наберите ↑↑↓↓←→←→BA</span></p>
 </footer>
+
+<!-- лайтбокс -->
+<div class="lightbox" id="lightbox" aria-hidden="true"><span class="lightbox-close">✕</span><img alt=""></div>
 
 <script src="script.js"></script>
 </body>
