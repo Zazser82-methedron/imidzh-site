@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ИМИДЖ — визуальная система бренда: фото, видео, дизайн, продвижение</title>
-<meta name="description" content="Рекламное агентство ИМИДЖ: фотосъёмка, видеопроизводство, дизайн и брендинг, лидогенерация и таргетинг. Создаём полную визуальную систему бренда для малого и среднего бизнеса.">
+<meta name="description" content="Рекламное агентство ИМИДЖ: фотосъёмка, видеопроизводство, дизайн и брендинг, лидогенерация, таргетинг и AI-контент. Создаём полную визуальную систему бренда. Штатные специалисты, без подрядчиков.">
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,6 @@
 </head>
 <body>
 
-<!-- SVG-фильтры: живая рефракция «жидкого стекла» -->
 <svg class="svg-defs" aria-hidden="true" focusable="false">
   <filter id="liquid">
     <feTurbulence type="fractalNoise" baseFrequency="0.011 0.013" numOctaves="2" seed="7" result="noise">
@@ -23,14 +22,10 @@
   </filter>
 </svg>
 
-<!-- фон: дрейфующие цветные блобы (их «ловит» стекло) -->
 <div class="blobs" aria-hidden="true"><span class="blob blob-a"></span><span class="blob blob-b"></span><span class="blob blob-c"></span></div>
-<!-- плёночное зерно -->
 <div class="grain" aria-hidden="true"></div>
-<!-- кастомный курсор -->
 <div class="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-ring"><i class="cursor-label"></i></span></div>
 
-<!-- рамка видоискателя -->
 <div class="viewfinder" aria-hidden="true">
   <span class="vf vf-tl"></span><span class="vf vf-tr"></span>
   <span class="vf vf-bl"></span><span class="vf vf-br"></span>
@@ -38,7 +33,7 @@
 </div>
 
 <header class="nav glass" id="top">
-  <a class="brand" href="#top" id="brand"><span class="brand-mark">[</span>ИМИДЖ<span class="brand-mark">]</span></a>
+  <a class="brand" href="#top" id="brand"><img class="brand-logo" src="logo.png" alt=""><span class="brand-mark">[</span>ИМИДЖ<span class="brand-mark">]</span></a>
   <nav class="nav-links" aria-label="Разделы">
     <a href="#services" data-cursor>Услуги</a>
     <a href="#tariffs" data-cursor>Тарифы</a>
@@ -62,15 +57,15 @@
     <span class="vf vf-bl"></span><span class="vf vf-br"></span>
   </div>
   <div class="hero-text">
-    <p class="eyebrow">К00 — рекламное агентство · СПб</p>
+    <p class="eyebrow">К00 — рекламное агентство · работаем в 6 городах</p>
     <h1 class="hero-title" data-split>Создаём полную <span class="accent-word">визуальную&nbsp;систему</span> бренда</h1>
-    <p class="hero-sub">Фото, видео, дизайн и продвижение под ключ. Делаем так, чтобы ваш бизнес выглядел сильнее, заметнее и профессиональнее — и приносил заявки.</p>
+    <p class="hero-sub">Визуальный образ бизнеса под ключ — от фотосъёмки и видео до полного брендинга и продвижения. <b>Штатные специалисты, без подрядчиков</b> — отвечаем за результат.</p>
     <div class="hero-cta">
       <a class="btn btn-accent" data-magnetic href="https://t.me/IMIDZHRF" target="_blank" rel="noopener">Оставить заявку</a>
       <a class="btn btn-glass" data-magnetic href="#services">Смотреть услуги</a>
     </div>
+    <p class="hero-cities">Санкт-Петербург<span> · </span>Москва<span> · </span>Казань<span> · </span>Екатеринбург<span> · </span>Нижний Новгород<span> · </span>Тюмень</p>
   </div>
-  <!-- сигнатура: живая стеклянная линза -->
   <div class="lens" id="lens" data-cursor data-label="ИМИДЖ">
     <div class="lens-img" style="background-image:url('img/shot21.jpg')"></div>
     <span class="lens-reticle">+</span>
@@ -78,7 +73,6 @@
   </div>
 </section>
 
-<!-- бегущая строка -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track" id="ticker">
     <span>ФОТОСЪЁМКА</span><i>✦</i><span>ВИДЕОПРОИЗВОДСТВО</span><i>✦</i><span>БРЕНДИНГ</span><i>✦</i><span>ЛИДОГЕНЕРАЦИЯ</span><i>✦</i><span>ТАРГЕТ</span><i>✦</i><span>AI-КОНТЕНТ</span><i>✦</i>
@@ -91,19 +85,89 @@
   <header class="section-head reveal">
     <p class="eyebrow">К01 — что мы делаем</p>
     <h2 class="section-title">Услуги</h2>
+    <p class="section-lead">Полный визуальный продакшн и продвижение — закрываем задачу целиком, силами своей команды.</p>
   </header>
   <div class="cards">
-    <article class="card glass reveal" data-tilt><span class="card-num">01</span><h3>Фотосъёмка</h3><p>Предметная, интерьерная, lifestyle, мероприятия и контент для сайта, маркетплейса и соцсетей.</p><span class="price">от 4 000 ₽</span></article>
-    <article class="card glass reveal" data-tilt><span class="card-num">02</span><h3>Видеопроизводство</h3><p>Рилсы, клипы, имиджевые ролики, интервью, репортаж, реклама, бэкстейдж — съёмка и монтаж «всё включено».</p><span class="price price-muted">по запросу</span></article>
-    <article class="card glass reveal" data-tilt><span class="card-num">03</span><h3>Дизайн и брендинг</h3><p>Логотип, фирменный стиль, визитки, листовки, меню, презентации, дизайн сайтов.</p><span class="price">от 3 000 ₽</span></article>
-    <article class="card glass reveal" data-tilt><span class="card-num">04</span><h3>Лидогенерация</h3><p>Команда из 3 специалистов: блогеры, холодный аутрич и рекламные размещения — стабильный поток заявок.</p><span class="price">от 2 500 ₽/день</span></article>
-    <article class="card glass reveal" data-tilt><span class="card-num">05</span><h3>Таргетинг</h3><p>Настройка и ведение рекламы под ключ: стратегия, связки, тесты, оптимизация и отчётность по заявкам.</p><span class="price price-muted">под задачу</span></article>
-    <article class="card glass reveal" data-tilt><span class="card-num">06</span><h3>AI-контент</h3><p>AI-видео и визуал для соцсетей и каналов — больше контента быстрее и дешевле.</p><span class="price price-muted">в тарифах</span></article>
+    <article class="card glass reveal" data-tilt>
+      <span class="card-num">01</span><h3>Фотосъёмка</h3>
+      <p>Снимаем образ, который продаёт — для сайта, маркетплейса и соцсетей.</p>
+      <ul class="feat">
+        <li>Предметная съёмка — от 5 000 ₽/час</li>
+        <li>Интерьерная — от 4 000 ₽</li>
+        <li>Lifestyle — от 5 000 ₽</li>
+        <li>Мероприятия и корпоративы — от 5 000 ₽</li>
+      </ul>
+      <span class="price">от 4 000 ₽</span>
+    </article>
+    <article class="card glass reveal" data-tilt>
+      <span class="card-num">02</span><h3>Видеопроизводство</h3>
+      <p>Съёмка и монтаж «всё включено» — от рилсов до имиджевых роликов.</p>
+      <ul class="feat">
+        <li>Рилсы, клипы, тизеры</li>
+        <li>Имиджевые и рекламные ролики</li>
+        <li>Интервью, репортаж, подкасты</li>
+        <li>Бэкстейдж</li>
+      </ul>
+      <span class="price price-muted">по запросу</span>
+    </article>
+    <article class="card glass reveal" data-tilt>
+      <span class="card-num">03</span><h3>Дизайн и брендинг</h3>
+      <p>Собираем фирменный стиль и материалы — узнаваемо и системно.</p>
+      <ul class="feat">
+        <li>Логотип — от 3 000 ₽</li>
+        <li>Фирменный стиль и личный бренд — от 7 000 ₽</li>
+        <li>Дизайн сайтов — от 10 000 ₽</li>
+        <li>Визитки и листовки — первая 1000 за наш счёт</li>
+        <li>Меню — от 3 000 ₽ · презентации — от 2 000 ₽</li>
+      </ul>
+      <span class="price">от 3 000 ₽</span>
+    </article>
+    <article class="card glass reveal" data-tilt>
+      <span class="card-num">04</span><h3>Лидогенерация</h3>
+      <p>Команда из 3 специалистов работает на стабильный поток заявок.</p>
+      <ul class="feat">
+        <li>Работа с блогерами — 3 000 ₽/день</li>
+        <li>Холодный аутрич, ≥150 контактов/день — 2 500 ₽/день</li>
+        <li>Рекламные размещения в каналах ЦА — 4 000 ₽/день</li>
+      </ul>
+      <div class="tags"><span class="tag">Лиды</span><span class="tag">Аутрич</span><span class="tag">Блогеры</span></div>
+      <span class="price">от 2 500 ₽/день</span>
+    </article>
+    <article class="card glass reveal" data-tilt>
+      <span class="card-num">05</span><h3>Таргетинг</h3>
+      <p>Реклама под ключ — превращаем бюджет в заявки и продажи.</p>
+      <ul class="feat">
+        <li>Анализ ниши и ЦА, стратегия</li>
+        <li>Связки: офферы, тексты, креативы</li>
+        <li>Тесты гипотез и оптимизация</li>
+        <li>Отчётность: охват, заявки, стоимость лида</li>
+      </ul>
+      <span class="price price-muted">под задачу</span>
+    </article>
+    <article class="card glass reveal card-wide" data-tilt>
+      <span class="card-num">06</span><h3>AI-услуги</h3>
+      <p>Ускоряем маркетинг и контент с помощью искусственного интеллекта.</p>
+      <div class="ai-grid">
+        <div>
+          <p class="feat-group">Маркетинг</p>
+          <ul class="feat"><li>Автоматизация (e-mail, мессенджеры, соцсети)</li><li>Чат-боты и AI-поддержка</li><li>Аналитика и сегментация клиентов</li><li>Оптимизация рекламы и лидов</li></ul>
+        </div>
+        <div>
+          <p class="feat-group">Контент</p>
+          <ul class="feat"><li>Генерация постов, изображений, видео</li><li>Перевод, субтитры, обработка аудио</li><li>Персональные предложения</li></ul>
+        </div>
+        <div>
+          <p class="feat-group">Автоматизация</p>
+          <ul class="feat"><li>Обработка документов (OCR) и отчёты</li><li>Мониторинг отзывов и репутации</li></ul>
+        </div>
+      </div>
+      <span class="price price-muted">в тарифах</span>
+    </article>
   </div>
 </section>
 
-<!-- ФОТО-БЭНД (full-bleed) -->
-<section class="band reveal" aria-label="Кадр из работ">
+<!-- ФОТО-БЭНД -->
+<section class="band" aria-label="Кадр из работ">
   <img src="img/shot19.jpg" alt="Кадр из съёмок ИМИДЖ" loading="lazy">
   <div class="band-quote glass"><span class="eyebrow">наш подход</span><p>Снимаем не «фото», а образ, который продаёт.</p></div>
 </section>
@@ -113,7 +177,7 @@
   <header class="section-head reveal">
     <p class="eyebrow">К02 — оформление с нуля</p>
     <h2 class="section-title">Продвижение под ключ</h2>
-    <p class="section-lead">Полный цикл: съёмка, контент, дизайн, ведение канала и трафик. Выберите интенсивность.</p>
+    <p class="section-lead">Запускаете бизнес? Сделаем всё — от названия и логотипа до первого контента, упаковки соцсетей и трафика. Выберите интенсивность.</p>
   </header>
   <div class="tariffs">
     <article class="tariff glass reveal"><h3 class="tariff-name">Базовый</h3><p class="tariff-price">82 000 ₽<span>/мес</span></p><p class="tariff-for">Старт и тест ниши</p><ul><li>4 фотосъёмки в месяц</li><li>8 рилсов (визуальный контент)</li><li>Логотип + аватарка</li><li>28 постов, ведение канала</li><li>Запуск канала ≈1000 подписчиков</li></ul><a class="btn btn-glass tariff-btn" data-magnetic href="https://t.me/IMIDZHRF" target="_blank" rel="noopener">Выбрать</a></article>
@@ -130,18 +194,20 @@
     <p class="section-lead">Наведите на кадр — и нажмите, чтобы рассмотреть.</p>
   </header>
   <div class="gallery" id="gallery">
-    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot02.jpg" alt="Кадр из съёмки ИМИДЖ" loading="lazy"></figure>
-    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot07.jpg" alt="Lifestyle-съёмка" loading="lazy"></figure>
-    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot03.jpg" alt="Интерьерная съёмка" loading="lazy"></figure>
-    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot06.jpg" alt="Предметная съёмка" loading="lazy"></figure>
-    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot09.jpg" alt="Контент для бренда" loading="lazy"></figure>
-    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot11.jpg" alt="Рекламная съёмка" loading="lazy"></figure>
-    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot20.jpg" alt="Съёмка для бренда" loading="lazy"></figure>
-    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot10.jpg" alt="Студийная съёмка" loading="lazy"></figure>
-    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot13.jpg" alt="Бренд-контент" loading="lazy"></figure>
-    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot16.jpg" alt="Кадр продакшна" loading="lazy"></figure>
-    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot08.jpg" alt="Съёмка мероприятия" loading="lazy"></figure>
-    <figure class="shot reveal" data-cursor data-label="смотреть"><img src="img/shot21.jpg" alt="Портфолио ИМИДЖ" loading="lazy"></figure>
+    <figure class="shot" data-cursor data-label="смотреть"><img src="img/shot02.jpg" alt="Кадр из съёмки ИМИДЖ" loading="lazy"></figure>
+    <figure class="shot" data-cursor data-label="смотреть"><img src="img/shot07.jpg" alt="Lifestyle-съёмка" loading="lazy"></figure>
+    <figure class="shot" data-cursor data-label="смотреть"><img src="img/shot03.jpg" alt="Интерьерная съёмка" loading="lazy"></figure>
+    <figure class="shot" data-cursor data-label="смотреть"><img src="img/shot06.jpg" alt="Предметная съёмка" loading="lazy"></figure>
+    <figure class="shot" data-cursor data-label="смотреть"><img src="img/shot09.jpg" alt="Контент для бренда" loading="lazy"></figure>
+    <figure class="shot" data-cursor data-label="смотреть"><img src="img/shot11.jpg" alt="Рекламная съёмка" loading="lazy"></figure>
+    <figure class="shot" data-cursor data-label="смотреть"><img src="img/shot20.jpg" alt="Съёмка для бренда" loading="lazy"></figure>
+    <figure class="shot" data-cursor data-label="смотреть"><img src="img/shot10.jpg" alt="Студийная съёмка" loading="lazy"></figure>
+    <figure class="shot" data-cursor data-label="смотреть"><img src="img/shot13.jpg" alt="Бренд-контент" loading="lazy"></figure>
+    <figure class="shot" data-cursor data-label="смотреть"><img src="img/shot16.jpg" alt="Кадр продакшна" loading="lazy"></figure>
+    <figure class="shot" data-cursor data-label="смотреть"><img src="img/shot08.jpg" alt="Съёмка мероприятия" loading="lazy"></figure>
+    <figure class="shot" data-cursor data-label="смотреть"><img src="img/shot04.jpg" alt="Lifestyle-кадр" loading="lazy"></figure>
+    <figure class="shot" data-cursor data-label="смотреть"><img src="img/shot16.jpg" alt="Продакшн ИМИДЖ" loading="lazy"></figure>
+    <figure class="shot" data-cursor data-label="смотреть"><img src="img/shot21.jpg" alt="Портфолио ИМИДЖ" loading="lazy"></figure>
   </div>
 </section>
 
@@ -181,15 +247,20 @@
     <a class="contact-card glass reveal" data-magnetic href="tel:+79673411808"><span class="contact-k">Телефон</span><span class="contact-v">+7 967 341 1808</span><span class="contact-act">Позвонить →</span></a>
     <a class="contact-card glass reveal" data-magnetic href="https://t.me/IMIDZH_RF" target="_blank" rel="noopener"><span class="contact-k">Telegram-канал</span><span class="contact-v">@IMIDZH_RF</span><span class="contact-act">Открыть →</span></a>
   </div>
+  <div class="socials reveal">
+    <span class="socials-label">Мы в мессенджерах и соцсетях</span>
+    <a class="soc soc-tg" href="https://t.me/IMIDZHRF" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M23.1 3.6 1.5 11.9c-1.1.4-1.1 1.5-.2 1.8l5.4 1.7L19 6.3c.5-.4 1-.2.6.2l-9.7 8.8-.4 5.3c.5 0 .8-.3 1-.5l2.5-2.4 5.2 3.8c1 .6 1.6.3 1.9-.9l3.4-15.9c.3-1.4-.5-2-1.4-1.6z"/></svg>Telegram</a>
+    <a class="soc soc-vk" href="https://vk.com/" target="_blank" rel="noopener" aria-label="ВКонтакте">ВКонтакте</a>
+    <a class="soc soc-max" href="https://max.ru/" target="_blank" rel="noopener" aria-label="MAX">MAX</a>
+  </div>
 </section>
 
 <footer class="footer">
-  <span class="brand"><span class="brand-mark">[</span>ИМИДЖ<span class="brand-mark">]</span></span>
+  <span class="brand"><img class="brand-logo" src="logo.png" alt=""><span class="brand-mark">[</span>ИМИДЖ<span class="brand-mark">]</span></span>
   <p>Полная визуальная система бренда — фото, видео, дизайн, продвижение.</p>
   <p class="footer-small">© 2026 ИМИДЖ · рекламное агентство · <span id="egg-hint">наберите ↑↑↓↓←→←→BA</span></p>
 </footer>
 
-<!-- лайтбокс -->
 <div class="lightbox" id="lightbox" aria-hidden="true"><span class="lightbox-close">✕</span><img alt=""></div>
 
 <script src="script.js"></script>

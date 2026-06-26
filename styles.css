@@ -231,6 +231,31 @@ body.recording{box-shadow:inset 0 0 0 2px rgba(242,89,61,.4)}
   .viewfinder{inset:8px}
 }
 
+/* ===== Логотип, города, детали услуг, соцсети ===== */
+.brand{display:inline-flex;align-items:center;gap:10px}
+.brand-logo{height:26px;width:auto;filter:brightness(0) invert(1);opacity:.95}
+.hero-cities{margin-top:26px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;
+  color:var(--muted);text-transform:uppercase}
+.hero-cities span{color:var(--cobalt-2)}
+.feat{list-style:none;display:flex;flex-direction:column;gap:7px;margin:14px 0 18px}
+.feat li{position:relative;padding-left:18px;font-size:14px;color:var(--muted);line-height:1.4}
+.feat li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--cobalt)}
+.feat-group{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--paper);margin:4px 0 4px}
+.ai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:8px 0 6px}
+.card-wide{grid-column:span 2}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.tag{font-family:var(--mono);font-size:12px;color:var(--paper);border:1px solid var(--glass-brd);border-radius:999px;padding:4px 12px}
+.cards{align-items:start}
+.socials{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.socials-label{width:100%;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.soc{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:14px;font-weight:700;
+  font-size:15px;color:#fff;transition:transform .15s,filter .2s}
+.soc:hover{transform:translateY(-3px);filter:brightness(1.12)}
+.soc svg{width:20px;height:20px;fill:currentColor}
+.soc-tg{background:#2aabee}
+.soc-vk{background:#0077ff}
+.soc-max{background:linear-gradient(135deg,#9061ff,#6d28d9)}
+
 /* ===== Курсор только для тонкого указателя ===== */
 @media(hover:none),(pointer:coarse){ .cursor{display:none} }
 
