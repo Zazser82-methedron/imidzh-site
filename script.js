@@ -79,6 +79,20 @@ if (track && !REDUCE) {
   })();
 }
 
+/* ---------- AI-строка (обратное движение) ---------- */
+const trackAi = document.getElementById('ticker-ai');
+if (trackAi && !REDUCE) {
+  let x = 0, half = 0;
+  const measure = () => { half = trackAi.scrollWidth / 2; x = -half; };
+  measure(); addEventListener('resize', measure);
+  (function loop() {
+    x += 0.4;
+    if (half && x >= 0) x = -half;
+    trackAi.style.transform = `translateX(${x}px)`;
+    requestAnimationFrame(loop);
+  })();
+}
+
 /* ---------- Параллакс фото-бэнда ---------- */
 const band = document.querySelector('.band img');
 if (band && !REDUCE) {
