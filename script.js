@@ -8,6 +8,23 @@ const io = new IntersectionObserver((es) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
+/* ---------- Счётчики достижений ---------- */
+const countIo = new IntersectionObserver((es) => {
+  es.forEach((e) => {
+    if (!e.isIntersecting) return;
+    countIo.unobserve(e.target);
+    const el = e.target, end = +el.dataset.count, suf = el.dataset.suffix || '';
+    if (REDUCE) { el.textContent = end + suf; return; }
+    const t0 = performance.now(), dur = 1200;
+    (function tick(t) {
+      const p = Math.min(1, (t - t0) / dur), v = Math.round(end * (1 - Math.pow(1 - p, 3)));
+      el.textContent = v + suf;
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-n[data-count]').forEach((el) => countIo.observe(el));
+
 /* ---------- Сплит заголовка по словам ---------- */
 const splitEl = document.querySelector('[data-split]');
 if (splitEl && !REDUCE) {

@@ -287,6 +287,15 @@ body.recording{box-shadow:inset 0 0 0 2px rgba(242,89,61,.4)}
   background:radial-gradient(120% 90% at 70% 20%,transparent,var(--ink) 78%);z-index:1}
 @keyframes heroFloat{0%,100%{transform:scale(1.04)}50%{transform:scale(1.1)}}
 
+/* ===== Достижения ===== */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.stat{padding:30px 26px;text-align:left}
+.stat-n{display:block;font-family:var(--display);font-weight:900;font-size:clamp(38px,5vw,56px);
+  line-height:1;color:#fff;letter-spacing:-.02em}
+.stat-l{display:block;margin-top:12px;color:var(--muted);font-size:15px;line-height:1.4}
+.band-author{display:block;margin-top:14px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.06em;color:var(--cobalt-2)}
+
 /* ===== Курсор только для тонкого указателя ===== */
 @media(hover:none),(pointer:coarse){ .cursor{display:none} }
 
